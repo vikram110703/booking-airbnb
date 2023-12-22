@@ -17,9 +17,9 @@ export const LoginPage = () => {
         email, password
       });
       alert(data.message);
-      console.log(user);
+      // console.log(user);
       setUser(data.user);
-      console.log(user);
+      // console.log(user);
       setRedirect(true);
       setEmail('');
       setPassword('');
