@@ -21,7 +21,7 @@ dotenv.config();
 //middlewares 
 app.use(cors({
   credentials: true,
-  origin: process.env.Frontend_URL,
+  origin: 'https://booking-airbnb-alpha.vercel.app',
 }));
 
 app.use(express.json());
