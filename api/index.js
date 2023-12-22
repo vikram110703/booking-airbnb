@@ -13,7 +13,6 @@ const imageDownloader = require('image-downloader');
 const { ObjectAlreadyInActiveTierError } = require('@aws-sdk/client-s3');
 const multer = require('multer');
 const fs = require('fs');
-const { Console } = require('console');
 const { resolve } = require('path');
 
 
