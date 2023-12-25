@@ -29,6 +29,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', process.env.Frontend_URL);
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
@@ -207,14 +208,14 @@ app.get('/places', async (req, res) => {
   res.json(await Place.find());
 });
 
-app.post('/bookings', async(req, res) => {
+app.post('/bookings', async (req, res) => {
   // console.log("enter");
-  const userData=await getUserDataFromReq(req);
+  const userData = await getUserDataFromReq(req);
   const { place, checkIn, checkOut,
     name, numberOfGuests, phone, price } = req.body;
   Booking.create({
-    place, checkIn, checkOut, numberOfGuests, 
-    phone, price, name,user:userData.id,
+    place, checkIn, checkOut, numberOfGuests,
+    phone, price, name, user: userData.id,
   }).then((doc) => {
     res.json(doc);
   }).catch((err) => {
@@ -224,11 +225,11 @@ app.post('/bookings', async(req, res) => {
 
 
 app.get('/bookings', async (req, res) => {
- const userData=await getUserDataFromReq(req);
-//  console.log(userData.id);
-const doc=await Booking.find({user:userData.id}).populate('place');
-// console.log("Enter-> ",doc);
-res.json(doc);
+  const userData = await getUserDataFromReq(req);
+  //  console.log(userData.id);
+  const doc = await Booking.find({ user: userData.id }).populate('place');
+  // console.log("Enter-> ",doc);
+  res.json(doc);
   // res.json(await Booking.find({user:userData.id}).populate('place'));
 });
 
