@@ -21,10 +21,17 @@ dotenv.config();
 //middlewares 
 app.use(cors({
   credentials: true,
-  origin: "*",
+  origin: process.env.Frontend_URL,
 }));
 
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', process.env.Frontend_URL);
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
