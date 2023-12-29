@@ -29,7 +29,7 @@ app.use(cors(
     "routes": [
       {
         "headers": {
-          "Access-Control-Allow-Origin": [`${process.env.FRONTEND_URL}`, "http://localhost:5173"]
+          "Access-Control-Allow-Origin": [`${process.env.Frontend_URL}`, "http://localhost:5173"]
         }
       }
     ]
