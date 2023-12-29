@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 
 
 // axios.defaults.baseURL = 'http://localhost:4000';
-axios.defaults.baseURL = 'https://airbnb-backend-aya7.onrender.com';
+axios.defaults.baseURL = 'https://airbnb-backend-ceeu.onrender.com';
 axios.defaults.withCredentials = true;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
