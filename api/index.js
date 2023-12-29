@@ -16,12 +16,12 @@ const fs = require('fs');
 const { resolve } = require('path');
 
 
-dotenv.config();
+dotenv.config('./');
 
 //middlewares 
 app.use(cors({
   credentials: true,
-  origin: process.env.Frontend_URL,
+  origin: [process.env.Frontend_URL,'http://localhost:5173'],
 }));
 
 app.use(express.json());
